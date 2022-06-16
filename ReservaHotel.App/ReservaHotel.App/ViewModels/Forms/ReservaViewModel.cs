@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ReservaHotel.App.ViewModels.Forms
 {
-    internal class HabitacionDetailViewModel
+    internal class ReservaViewModel
     {
     }
 }

@@ -15,7 +15,7 @@ namespace ReservaHotel.App.ViewModels.Forms
             await Application.Current.MainPage.DisplayAlert("Notify", $"Selected {this.reservaID}", "Cancel");
 
             ClienteDetailPage detailPage = new ClienteDetailPage();
-            detailPage.BindingContext = new ClienteDetailViewModel(this);
+            //detailPage.BindingContext = new ClienteDetailViewModel(this);
             await Application.Current.MainPage.Navigation.PushAsync(detailPage);
         }
         public Command OnItemClickCommand { get; set; }

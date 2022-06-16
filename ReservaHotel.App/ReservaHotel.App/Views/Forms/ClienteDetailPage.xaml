@@ -1,12 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ReservaHotel.App.Views.Forms.ClienteDetailPage">
+             x:Class="ReservaHotel.App.Views.Forms.ClienteDetailPage"
+             xmlns:viewModels="clr-namespace:ReservaHotel.App.ViewModels.Forms">
+
+    <ContentPage.BindingContext>
+        <viewModels:ClienteDetailViewModel/>
+    </ContentPage.BindingContext>
+
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="50" VerticalOptions="Center">
+            <Label Text="ID Cliente" />
+            <Entry Text="{Binding Cliente.clienteID}" />
+
+            <Label Text="Nombre" />
+            <Entry Text="{Binding Cliente.nombreCompleto}" />
+
+            <Label Text="Direccion" />
+            <Entry Text="{Binding Cliente.Direccion}" />
+
+            <Label Text="Telefono" />
+            <Entry Text="{Binding Cliente.Telefono}" />
+
+            <Label Text="Email" />
+            <Entry Text="{Binding Cliente.Email}" />
+
+            <ListView ItemsSource="{Binding Cliente}"
+                      HasUnevenRows="True"
+                      IsPullToRefreshEnabled="True"
+                      IsRefreshing="{Binding IsRefreshing}"
+                      RefreshCommand="{Binding RefreshCommand}">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+
+                            <Frame BorderColor="Black" CornerRadius="14">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="0" Text="{Binding clienteID}" />
+                                    <Label Grid.Column="1" Text="{Binding nombreCompleto}" HorizontalTextAlignment="Center" />
+                                </Grid>
+                            </Frame>
+
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
+
+            <Button Text="Ver reserva" TextColor="White" BackgroundColor="Black" Command="{Binding ReservaCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

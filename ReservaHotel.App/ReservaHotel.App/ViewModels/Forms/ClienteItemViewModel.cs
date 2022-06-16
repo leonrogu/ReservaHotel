@@ -22,6 +22,6 @@ namespace ReservaHotel.App.ViewModels.Forms
         public ClienteItemViewModel()
         {
             this.OnItemClickCommand = new Command(OnItemClick);
-        }
+        } 
     }
 }

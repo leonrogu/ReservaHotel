@@ -49,7 +49,7 @@ namespace ReservaHotel.App.ViewModels.Forms
                     //TODO: Logic App
                     var loginRes = JsonConvert.DeserializeObject<LoginResDTO>(result);
                     var token = loginRes.Token;
-                    //await Application.Current.MainPage.DisplayAlert("Notify", token, "Cancel");
+                    await Application.Current.MainPage.DisplayAlert("Notify", token, "Cancel");
 
                     //redirect
                     await Application.Current.MainPage.Navigation.PushAsync(new ClientePage());
@@ -66,7 +66,7 @@ namespace ReservaHotel.App.ViewModels.Forms
         async void Register()
         {
             //TODO: Cambiar a RegisterPage
-            await Application.Current.MainPage.Navigation.PushAsync(new LoginPage());
+            await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage());
         }
         #endregion
 
